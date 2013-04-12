@@ -111,8 +111,9 @@ largest positive numbers, -Inf is closest to -Inf and after that largest
 negative numbers.
 
 I'd reckon that `number` is the behavior that most people want, but if you don't
-deal with infinites, you can just use `nothing` (which is the default unless
-target number is infinite).
+deal with infinites, you can just use `nothing` (which is the default anyway
+unless target number is infinite). In other words, you don't have to do
+anything.
 
 _
         },
