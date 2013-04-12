@@ -110,6 +110,10 @@ do nothing about it and will produce a warning if target number is an infinite,
 largest positive numbers, -Inf is closest to -Inf and after that largest
 negative numbers.
 
+I'd reckon that `number` is the behavior that most people want, but if you don't
+deal with infinites, you can just use `nothing` (which is the default unless
+target number is infinite).
+
 _
         },
     },
@@ -134,10 +138,9 @@ sub find_farthest_number {
 =head1 SYNOPSIS
 
  use Number::Closest::NonOO qw(find_closest_number find_farthest_number);
- my $nums = find_closest_number(number=>3, numbers=>[1, 3, 5, 10], items => 2);
- # => [3, 1];
+ my $nums = find_closest_number(number=>3, numbers=>[1, 3, 5, 10], items => 2); # => [3, 1]
 
- $nums = find_farthest_number(number=>3, numbers=>[1, 3, 5, 10]);
+ $nums = find_farthest_number(number=>3, numbers=>[1, 3, 5, 10]); # => 10
 
 
 =head1 DESCRIPTION
@@ -150,8 +153,7 @@ sub find_farthest_number {
 You can filter (grep) your list of numbers first, for example to find numbers
 that are closest I<and smaller or equal to> 3:
 
- my @nums = (1, 3, 5, 2, 4);
- @nums = grep {$_ <= 3} @nums;
+ my @nums = grep {$_ <= 3} 1, 3, 5, 2, 4;
  my $res = find_closest_number(number => 3, numbers => \@nums);
 
 =head2 How do I find unique closest number(s)?
