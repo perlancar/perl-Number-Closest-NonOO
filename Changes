@@ -2,15 +2,15 @@ Revision history for Number-Closest-NonOO
 
 0.03    2013-04-12 (SHARYANTO)
 
-        Change default to inf=nothing. Allow inf=number to work when target
-        number is not infinite.
+        - Change default to inf=nothing. Allow inf=number to work when target
+          number is not infinite.
 
 
 0.02    2013-04-12 (SHARYANTO)
 
-        No functional changes. Tweak POD & Rinci metadata.
+        - No functional changes. Tweak POD & Rinci metadata.
 
 
 0.01    2013-04-12 (SHARYANTO)
 
-        First version.
+        - First version.
