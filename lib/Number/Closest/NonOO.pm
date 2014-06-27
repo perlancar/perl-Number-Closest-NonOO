@@ -4,9 +4,10 @@ use 5.010001;
 use strict;
 use warnings;
 
-use Data::Clone;
+use Perinci::Sub::Util qw(gen_modified_sub);
 use Scalar::Util 'looks_like_number';
 
+# DATE
 # VERSION
 
 require Exporter;
@@ -127,13 +128,15 @@ sub find_closest_number {
     _find(%args);
 }
 
-$SPEC{find_farthest_number} = clone($SPEC{find_closest_number});
-$SPEC{find_farthest_number}{summary} =
-    'Find number(s) farthest to a number in a list of numbers';
-sub find_farthest_number {
-    my %args = @_;
-    _find(%args, -farthest=>1);
-}
+gen_modified_sub(
+    output_name => 'find_farthest_number',
+    base_name   => 'find_closest_number',
+    summary     => 'Find number(s) farthest to a number in a list of numbers',
+    output_code => sub {
+        my %args = @_;
+        _find(%args, -farthest=>1);
+    },
+);
 
 1;
 # ABSTRACT: Find number(s) closest to a number in a list of numbers
