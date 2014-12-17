@@ -1,5 +1,8 @@
 package Number::Closest::NonOO;
 
+# DATE
+# VERSION
+
 use 5.010001;
 use strict;
 use warnings;
@@ -7,13 +10,15 @@ use warnings;
 use Perinci::Sub::Util qw(gen_modified_sub);
 use Scalar::Util 'looks_like_number';
 
-# DATE
-# VERSION
-
 require Exporter;
 our @ISA       = qw(Exporter);
 our @EXPORT_OK = qw(find_closest_number find_farthest_number);
 our %SPEC;
+
+$SPEC{':package'} = {
+    v => 1.1,
+    summary => 'Find number(s) closest to a number in a list of numbers',
+};
 
 sub _find {
     my %args = @_;
@@ -139,7 +144,7 @@ gen_modified_sub(
 );
 
 1;
-# ABSTRACT: Find number(s) closest to a number in a list of numbers
+# ABSTRACT:
 
 =head1 SYNOPSIS
 
