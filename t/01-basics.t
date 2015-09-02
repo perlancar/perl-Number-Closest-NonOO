@@ -19,4 +19,18 @@ is_deeply(find_closest_number(number=> "inf", numbers=>["-inf", -2, -1, 0, 1, 2,
 is_deeply(find_closest_number(number=>"-inf", numbers=>["-inf", -2, -1, 0, 1, 2, "inf"], inf=>"number", items => 10),
           ["-inf", -2, -1, 0, 1, 2, "inf"], "inf=number 2");
 
+# ordering tests
+is(find_closest_number (number=>6, numbers=>[5, 7]), 5, "close order 1");
+is(find_closest_number (number=>6, numbers=>[7, 5]), 5, "close order 2");
+is(find_farthest_number(number=>6, numbers=>[5, 7]), 7, "far order 1");
+is(find_farthest_number(number=>6, numbers=>[7, 5]), 7, "far order 2");
+is_deeply(find_closest_number(number=> 6, numbers=>["-inf", 5, 7, "inf"], inf=>"number", items => 4),
+          [5, 7, "-inf", "inf"], "close order 1 (inf=number)");
+is_deeply(find_closest_number(number=> 6, numbers=>["-inf", 7, 5, "inf"], inf=>"number", items => 4),
+          [5, 7, "-inf", "inf"], "close order 2 (inf=number)");
+is_deeply(find_farthest_number(number=> 6, numbers=>["-inf", 5, 7, "inf"], inf=>"number", items => 4),
+          ["inf", "-inf", 7, 5], "far order 1 (inf=number)");
+is_deeply(find_farthest_number(number=> 6, numbers=>["-inf", 7, 5, "inf"], inf=>"number", items => 4),
+          ["inf", "-inf", 7, 5], "far order 2 (inf=number)");
+
 done_testing;
