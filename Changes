@@ -1,5 +1,13 @@
 Revision history for Number-Closest-NonOO
 
+0.06    2015-09-03 (PERLANCAR)
+
+	- No functional changes.
+
+        - [dist] Rebuild to fix POD generation (remove needless '{en_US ...}'
+          marks).
+
+
 0.05    2015-09-03 (PERLANCAR)
 
 	- No functional changes.
